@@ -1,0 +1,60 @@
+<div class="container push-up">
+  <div class="row">
+    <div class="col-6">
+      <h2 class="text-center">{{ freeRooms?.lessonNumber }}. Stunde am {{ freeRooms?.date | date: 'd.MM.yyyy'}}</h2>
+      <br>
+      <div *ngIf="freeRooms?.current.a.length > 0">
+        <h3>A Gebäude</h3>
+        <ul>
+          <li class="display-5" *ngFor="let freeRoom of freeRooms?.current.a">{{freeRoom.name}}
+            <b> {{getAdditional(freeRoom)}}
+            </b></li>
+        </ul>
+      </div>
+      <div *ngIf="freeRooms?.current.b.length > 0">
+        <h3>B Gebäude</h3>
+        <ul>
+          <li class="display-5" *ngFor="let freeRoom of freeRooms?.current.b">{{freeRoom.name}}
+            <b> {{getAdditional(freeRoom)}}
+            </b></li>
+        </ul>
+      </div>
+      <div *ngIf="freeRooms?.current.c.length > 0">
+        <h3>C Gebäude</h3>
+        <ul>
+          <li class="display-5" *ngFor="let freeRoom of freeRooms?.current.c">{{freeRoom.name}}
+            <b> {{getAdditional(freeRoom)}}
+            </b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-6">
+      <h2 class="text-center">{{ freeRooms?.lessonNumber + 1 }}. Stunde am {{ freeRooms?.date | date: 'd.MM.yyyy'}}</h2>
+      <br>
+      <div *ngIf="freeRooms?.next.a.length > 0">
+        <h3>A Gebäude</h3>
+        <ul>
+          <li class="display-5" *ngFor="let freeRoom of freeRooms?.next.a">{{freeRoom.name}}
+            <b> {{getAdditional(freeRoom)}}
+            </b></li>
+        </ul>
+      </div>
+      <div *ngIf="freeRooms?.next.b.length > 0">
+        <h3>B Gebäude</h3>
+        <ul>
+          <li class="display-5" *ngFor="let freeRoom of freeRooms?.next.b">{{freeRoom.name}}
+            <b> {{getAdditional(freeRoom)}}
+            </b></li>
+        </ul>
+      </div>
+      <div *ngIf="freeRooms?.next.c.length > 0">
+        <h3>C Gebäude</h3>
+        <ul>
+          <li class="display-5" *ngFor="let freeRoom of freeRooms?.next.c">{{freeRoom.name}}
+            <b> {{getAdditional(freeRoom)}}
+            </b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

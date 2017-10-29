@@ -1,0 +1,80 @@
+  .child {
+    padding-top: 12px;
+    display: inline-block;
+    max-width: 100%;
+    /*min-width: 54%;*/
+  }
+
+  .strike {
+    text-decoration: line-through;
+    color: red;
+  }
+
+  .irregular {
+    color: red;
+  }
+
+  .current-lesson {
+    background-color: lightgreen;
+  }
+
+  .center-td {
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .inner-table {
+    width: 100%;
+  }
+
+  .inner-table td {
+    border: none;
+    padding: 5px;
+  }
+
+  .table td {
+    padding: 5px;
+    vertical-align: middle;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  .table>tbody>tr>td {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+  }
+
+  .mother {
+    display: block;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (max-width: 700px) {
+    .table th {
+      font-size: 2vw;
+    }
+    .table h4 {
+      font-size: 4vw;
+    }
+    .table td {
+      padding: 1px;
+    }
+    .child {
+      font-size: 2vw;
+    }
+    .thead-inverse {
+      height: 10%;
+    }
+    .table th {
+      padding: 8px;
+    }
+  }

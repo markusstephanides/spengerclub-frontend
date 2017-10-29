@@ -1,0 +1,33 @@
+.push-up {
+  margin-top: 2em;
+}
+
+.row {
+  justify-content: center;
+  color: black;
+}
+
+.table>tbody>tr>td {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+}
+
+@media (max-width: 700px) {
+  .table th {
+    font-size: 2vw;
+  }
+  .table h4 {
+    font-size: 4vw;
+  }
+  .table td {
+    padding: 1px;
+    font-size: 2vw;
+  }
+  .thead-inverse {
+    height: 10%;
+  }
+  .table th {
+    padding: 8px;
+  }
+}
