@@ -1,6 +1,6 @@
 {
   "/endpoint": {
-    "target": "http://localhost:4500",
-    "secure":false
+    "target": "https://spenger.club:4500",
+    "secure": true
   }
 }
