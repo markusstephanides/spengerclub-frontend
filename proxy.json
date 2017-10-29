@@ -1,6 +1,6 @@
 {
   "/endpoint": {
-    "target": "https://spenger.club:4500",
-    "secure": true
+    "target": "http://spenger.club:4500",
+    "secure": false
   }
 }
