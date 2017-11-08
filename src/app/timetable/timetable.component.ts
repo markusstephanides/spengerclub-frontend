@@ -185,7 +185,8 @@ export class TimetableComponent {
       return '';
     }
 
-    return unit.length > 0 && unit[0][0].startTime === this.currentLesson.startTime && unit[0][0].date === this.currentLesson.date
+    return unit.length > 0 && unit[0][0].startTime === this.currentLesson.startTime &&
+     unit[0][0].date === parseInt(this.currentLesson.date, 10)
       ? 'current-lesson' : '';
   }
 
