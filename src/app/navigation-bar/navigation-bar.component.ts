@@ -13,7 +13,7 @@ export class NavigationBarComponent implements OnInit {
 
   ngOnInit() {
     this.links = [
-      { path: '/timetable', name: 'Stundenplan' },
+      { path: '', name: 'Stundenplan' },
       { path: '/freerooms', name: 'Freie Räume' },
       { path: '/holidays', name: 'Schulfreie Tage' }
     ];
