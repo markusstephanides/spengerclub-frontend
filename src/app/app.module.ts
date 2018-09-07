@@ -17,7 +17,6 @@ import { VipComponent } from './vip/vip.component';
 
 const appRoutes: Routes = [
   { path: '', component: TimetableComponent },
-  { path: 'timetable', component: TimetableComponent },
   { path: 'freerooms', component: FreeRoomsComponent },
   { path: 'holidays', component: HolidaysComponent }
 ];
