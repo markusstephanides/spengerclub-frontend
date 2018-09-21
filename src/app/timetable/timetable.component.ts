@@ -33,6 +33,8 @@ export class TimetableComponent {
   private currentlySaved: any;
   private holidays: any;
 
+  public bannerHide:boolean;
+
   constructor(public units: UntisFetcherService, private cookieService: CookieService) {
     this.timetable = [];
     this.nextWeek = false;
@@ -157,6 +159,10 @@ export class TimetableComponent {
     } else {
       return 0;
     }
+  }
+
+  public closeBanner() {
+      this.bannerHide = true;
   }
 
   public changeWeek() {

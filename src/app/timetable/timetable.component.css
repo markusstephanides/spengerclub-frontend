@@ -1,3 +1,27 @@
+  .vote-box {
+    -webkit-box-shadow: 0px 0px 63px 0px rgba(99, 99, 99, 1);
+    -moz-box-shadow: 0px 0px 63px 0px rgba(99, 99, 99, 1);
+    box-shadow: 0px 0px 63px 0px rgba(99, 99, 99, 1);
+  }
+
+  .panel-heading {
+    background-color: #1a1a1a !important;
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .niko {
+    max-width: 100%;
+  }
+
+  .tright {
+    float: right;
+    margin-right: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
   .child {
     padding-top: 12px;
     display: inline-block;

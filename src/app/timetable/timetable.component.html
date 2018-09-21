@@ -1,4 +1,21 @@
+<div class="container-fluid" *ngIf="!bannerHide">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-sm-12 mt-3 mb-2">
+      <div class="panel panel-default vote-box">
+        <div class="panel-heading font-lead">
+          Schülervertreterwahl 2018: <b>spenger.club</b> empfiehlt
+          <font class="tright" (click)="closeBanner()">Schließen</font>
+        </div>
+        <div class="panel-body"><a href="assets/sv.pdf"><img class="niko" src="assets/niko.png"></a></div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="mother">
+ <!--  <div class="panel panel-default vote-box">
+    <div class="panel-heading">Schülervertreterwahl 2018: spenger.club empfiehlt</div>
+    <div class="panel-body"><img class="niko" src="assets/niko.png"></div>
+  </div> -->
   <div class="child">
     <div class="row">
       <div class="col-md-4">
@@ -10,8 +27,7 @@
       </div>
       <div class="col-md-4" style="display: inherit;">
         <div class="input-group">
-          <input (selectItem)="onSelectItem($event.item)" (ngModelChange)="timetableLoaded = false" [attr.disable]="typeAheadList === undefined?'true':''" id="typeahead-basic" [attr.placeholder]="typeAheadList === undefined?'Bitte Typ wählen':''" type="text" class="form-control"
-            [(ngModel)]="detailSelect" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter" />
+          <input (selectItem)="onSelectItem($event.item)" (ngModelChange)="timetableLoaded = false" [attr.disable]="typeAheadList === undefined?'true':''" id="typeahead-basic" [attr.placeholder]="typeAheadList === undefined?'Bitte Typ wählen':''" type="text" class="form-control" [(ngModel)]="detailSelect" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter" />
           <span class="input-group-btn">
         <button class="btn btn-info" (click)="setAsDefault()" style="height: 0px;" [disabled]="!timetableLoaded || currTTIsSaved()">Speichern</button>
       </span>
@@ -44,12 +60,12 @@
             <table class="inner-table">
               <tr *ngFor="let row of unit">
                 <td *ngFor="let child of row" [attr.class]="'text-center '+(isIrregular(child) ? 'irregular' : isCancelled(child) ? 'strike' : '')">
-                  <span ngbTooltip="{{definitions.subjects[child.subject]?.name ? definitions.subjects[child.subject]?.longName : '' }}" container="body">{{definitions.subjects[child.subject]?.name ? definitions.subjects[child.subject]?.name : '???'}}</span><br>
-                  <span
-                    ngbTooltip="{{definitions.teachers[child.teacher]?.name ? (definitions.teachers[child.teacher]?.longName + ' ' + definitions.teachers[child.teacher]?.forename) : '' }}" container="body">{{ typeSelect == 'teachers' ? '' : definitions.teachers[child.teacher]?.name ? definitions.teachers[child.teacher]?.name : '???'}}</span><br [hidden]="typeSelect == 'teachers'"><span ngbTooltip="{{child.classes ? definitions.classes[child.classes[0].id]?.longName : '' }}"
-                      container="body">{{ typeSelect == 'classes' || !child.classes ? '' : definitions.classes[child.classes[0].id]?.name ? definitions.classes[child.classes[0].id]?.name : '???'}}</span><br [hidden]="typeSelect == 'classes' || !child.classes">
-                    <span
-                      ngbTooltip="{{definitions.rooms[child.room]?.name ? (definitions.rooms[child.room]?.building + ' Gebäude - ' + definitions.rooms[child.room]?.longName) : '' }}" container="body">{{ typeSelect == 'rooms' ? '' : definitions.rooms[child.room]?.name ? definitions.rooms[child.room]?.name : '???'}}</span>
+                  <span ngbTooltip="{{definitions.subjects[child.subject]?.name ? definitions.subjects[child.subject]?.longName : '' }}" container="body">{{definitions.subjects[child.subject]?.name ? definitions.subjects[child.subject]?.name : '???'}}</span>
+                  <br>
+                  <span ngbTooltip="{{definitions.teachers[child.teacher]?.name ? (definitions.teachers[child.teacher]?.longName + ' ' + definitions.teachers[child.teacher]?.forename) : '' }}" container="body">{{ typeSelect == 'teachers' ? '' : definitions.teachers[child.teacher]?.name ? definitions.teachers[child.teacher]?.name : '???'}}</span>
+                  <br [hidden]="typeSelect == 'teachers'"><span ngbTooltip="{{child.classes ? definitions.classes[child.classes[0].id]?.longName : '' }}" container="body">{{ typeSelect == 'classes' || !child.classes ? '' : definitions.classes[child.classes[0].id]?.name ? definitions.classes[child.classes[0].id]?.name : '???'}}</span>
+                  <br [hidden]="typeSelect == 'classes' || !child.classes">
+                  <span ngbTooltip="{{definitions.rooms[child.room]?.name ? (definitions.rooms[child.room]?.building + ' Gebäude - ' + definitions.rooms[child.room]?.longName) : '' }}" container="body">{{ typeSelect == 'rooms' ? '' : definitions.rooms[child.room]?.name ? definitions.rooms[child.room]?.name : '???'}}</span>
                 </td>
               </tr>
             </table>
