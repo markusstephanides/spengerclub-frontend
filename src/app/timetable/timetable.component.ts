@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import * as moment from 'moment';
 import _ from 'lodash';
 import { CookieService } from 'ngx-cookie-service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   templateUrl: './timetable.component.html',
@@ -35,7 +36,7 @@ export class TimetableComponent {
 
   public bannerHide:boolean;
 
-  constructor(public units: UntisFetcherService, private cookieService: CookieService) {
+  constructor(public units: UntisFetcherService, private cookieService: CookieService, private titleService: Title) {
     this.timetable = [];
     this.nextWeek = false;
     this.timetableLoaded = false;
@@ -91,6 +92,8 @@ export class TimetableComponent {
       this.loadList(null);
       this.loadTimetable();
     });
+
+    this.titleService.setTitle("spenger.club" );
   }
 
   private loadDays() {
@@ -184,6 +187,7 @@ export class TimetableComponent {
     this.timetable = undefined;
     this.typeAheadList = this.definitions[this.typeSelect.toString()];
     this.nextWeek = false;
+    this.titleService.setTitle("spenger.club" );
   }
 
   public getCurrClass(unit: any) {
@@ -235,6 +239,7 @@ export class TimetableComponent {
     }
 
     if (!reqItem) {
+      this.titleService.setTitle("spenger.club" );
       return;
     }
 
@@ -257,6 +262,8 @@ export class TimetableComponent {
         this.units.getLastUntisUpdate().subscribe(lastUpdateTime => {
           this.lastImportTime = new Date(lastUpdateTime);
         });
+
+        this.titleService.setTitle( this.currentItem.name + " - spenger.club" );
       });
 
     this.activeAutoload = setInterval(function() { this.loadTimetable(undefined, true); }.bind(this), 1000 * 60);

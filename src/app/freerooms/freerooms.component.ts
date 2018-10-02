@@ -9,6 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import * as moment from 'moment';
 import _ from 'lodash';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   templateUrl: './freerooms.component.html',
@@ -21,11 +22,12 @@ export class FreeRoomsComponent {
 
   public freeRooms: any;
 
-  constructor(public api: UntisFetcherService) {
+  constructor(public api: UntisFetcherService, private titleService: Title) {
     api.getFreeRooms().subscribe((response) => {
       response.date = new Date(response.date);
       this.freeRooms = response;
     });
+    this.titleService.setTitle("Freie Räume - spenger.club" );
   }
 
   public getAdditional(freeRoom: any) {

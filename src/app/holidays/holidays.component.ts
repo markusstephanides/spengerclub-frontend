@@ -9,6 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import * as moment from 'moment';
 import _ from 'lodash';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   templateUrl: './holidays.component.html',
@@ -19,7 +20,7 @@ export class HolidaysComponent {
 
   public holidays: any;
 
-  constructor(public api: UntisFetcherService) {
+  constructor(public api: UntisFetcherService, private titleService: Title) {
     api.getHolidays().subscribe((response) => {
       const toDelete = [];
 
@@ -43,6 +44,7 @@ export class HolidaysComponent {
 
       this.holidays = response;
     });
+    this.titleService.setTitle("Schulfreie Tage - spenger.club" );
   }
 
   private formatDate(date: any) {
