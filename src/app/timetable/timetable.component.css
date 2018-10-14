@@ -50,6 +50,11 @@
     padding-bottom: 10px;
   }
 
+  .whack-table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
   .inner-table {
     width: 100%;
   }

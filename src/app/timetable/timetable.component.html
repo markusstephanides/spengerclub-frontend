@@ -28,34 +28,36 @@
     <h1 class="text-center" [hidden]="!timetableLoaded">{{ detailSelect?.name }} <small>{{ detailSelect?.longName }}</small></h1>
     <h1 [hidden]="timetableLoaded">Es wurde kein Stundenplan ausgewählt</h1>
     <div class="text-center" ngbTooltip="Letztes Stundenplan-Update: {{ lastImportTime?.toLocaleString() }}" [hidden]="!timetableLoaded">{{ lastUpdated }}</div>
-    <table class="table table-responsive table-bordered" style="color: black;" [hidden]="!timetableLoaded">
-      <thead class="thead-inverse">
-        <tr>
-          <th class="text-center" style="vertical-align: middle;">#</th>
-          <th class="text-center" style="vertical-align: middle;" *ngFor="let day of days">{{day.day}}
-            <br><small>{{day.date}}</small>
-            <br><b style="color: greenyellow;">{{day.holidayName}}</b>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let lesson of timetable">
-          <td [attr.class]="getCurrLessonClass(getLessonInfo(lesson)) + 'center-td'">
-            <h4>{{ getLessonInfo(lesson).number }}</h4> {{ getLessonInfo(lesson).start +" - "+ getLessonInfo(lesson).end }}
-          </td>
-          <td *ngFor="let unit of lesson" [attr.class]="getCurrClass(unit)">
-            <table class="inner-table">
-              <tr *ngFor="let row of unit">
-                <td *ngFor="let child of row" [attr.class]="'text-center '+(isIrregular(child) ? 'irregular' : isCancelled(child) ? 'strike' : '')">
-                  <span ngbTooltip="{{definitions.subjects[child.subject]?.name ? definitions.subjects[child.subject]?.longName : '' }}" container="body">{{definitions.subjects[child.subject]?.name ? definitions.subjects[child.subject]?.name : '???'}}</span><br>
-                  <span ngbTooltip="{{definitions.teachers[child.teacher]?.name ? (definitions.teachers[child.teacher]?.longName + ' ' + definitions.teachers[child.teacher]?.forename) : '' }}" container="body">{{ typeSelect == 'teachers' ? '' : definitions.teachers[child.teacher]?.name ? definitions.teachers[child.teacher]?.name : '???'}}</span><br [hidden]="typeSelect == 'teachers'"><span ngbTooltip="{{child.classes ? definitions.classes[child.classes[0].id]?.longName : '' }}" container="body">{{ typeSelect == 'classes' || !child.classes ? '' : definitions.classes[child.classes[0].id]?.name ? definitions.classes[child.classes[0].id]?.name : '???'}}</span><br [hidden]="typeSelect == 'classes' || !child.classes"><span ngbTooltip="{{definitions.rooms[child.room]?.name ? (definitions.rooms[child.room]?.building + ' Gebäude - ' + definitions.rooms[child.room]?.longName) : '' }}" container="body">{{ typeSelect == 'rooms' ? '' : definitions.rooms[child.room]?.name ? definitions.rooms[child.room]?.name : '???'}}</span>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="whack-table-wrapper">
+      <table class="table table-bordered" style="color: black;" [hidden]="!timetableLoaded">
+        <thead class="thead-inverse">
+          <tr>
+            <th class="text-center" style="vertical-align: middle;">#</th>
+            <th class="text-center" style="vertical-align: middle;" *ngFor="let day of days">{{day.day}}
+              <br><small>{{day.date}}</small>
+              <br><b style="color: greenyellow;">{{day.holidayName}}</b>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lesson of timetable">
+            <td [attr.class]="getCurrLessonClass(getLessonInfo(lesson)) + 'center-td'">
+              <h4>{{ getLessonInfo(lesson).number }}</h4> {{ getLessonInfo(lesson).start +" - "+ getLessonInfo(lesson).end }}
+            </td>
+            <td *ngFor="let unit of lesson" [attr.class]="getCurrClass(unit)">
+              <table class="inner-table">
+                <tr *ngFor="let row of unit">
+                  <td *ngFor="let child of row" [attr.class]="'text-center '+(isIrregular(child) ? 'irregular' : isCancelled(child) ? 'strike' : '')">
+                    <span ngbTooltip="{{definitions.subjects[child.subject]?.name ? definitions.subjects[child.subject]?.longName : '' }}" container="body">{{definitions.subjects[child.subject]?.name ? definitions.subjects[child.subject]?.name : '???'}}</span><br>
+                    <span ngbTooltip="{{definitions.teachers[child.teacher]?.name ? (definitions.teachers[child.teacher]?.longName + ' ' + definitions.teachers[child.teacher]?.forename) : '' }}" container="body">{{ typeSelect == 'teachers' ? '' : definitions.teachers[child.teacher]?.name ? definitions.teachers[child.teacher]?.name : '???'}}</span><br [hidden]="typeSelect == 'teachers'"><span ngbTooltip="{{child.classes ? definitions.classes[child.classes[0].id]?.longName : '' }}" container="body">{{ typeSelect == 'classes' || !child.classes ? '' : definitions.classes[child.classes[0].id]?.name ? definitions.classes[child.classes[0].id]?.name : '???'}}</span><br [hidden]="typeSelect == 'classes' || !child.classes"><span ngbTooltip="{{definitions.rooms[child.room]?.name ? (definitions.rooms[child.room]?.building + ' Gebäude - ' + definitions.rooms[child.room]?.longName) : '' }}" container="body">{{ typeSelect == 'rooms' ? '' : definitions.rooms[child.room]?.name ? definitions.rooms[child.room]?.name : '???'}}</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 <ng-template #rt let-r="result" let-t="term">{{ r.searchName }}</ng-template>
