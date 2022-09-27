@@ -5,4 +5,4 @@ The backend is not open source yet so if you want to implemented changes that ne
 
 ## Development server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:5000/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
